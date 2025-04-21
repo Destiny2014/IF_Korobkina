@@ -1,14 +1,9 @@
 package org.ifellow.korobkina;
 
-public class Toyota extends Car{
+public class Toyota extends Car {
 
     public Toyota(int year, String transmission, String nameModel, String color, int maxSpeed, double capasityEngine) {
         super(year, transmission, nameModel, color, maxSpeed, capasityEngine);
-    }
-
-    @Override
-    public void printBrand() {
-        System.out.println("Марка: " + getBrand());
     }
 
     @Override
@@ -16,10 +11,8 @@ public class Toyota extends Car{
         return "Toyota";
     }
 
-    public void getInfo(){
-        printBrand();
-        super.getInfo();
-        System.out.println(" ");
+    @Override
+    public String getCountry() {
+        return "Япония";
     }
-
 }
