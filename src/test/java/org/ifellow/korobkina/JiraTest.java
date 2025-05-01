@@ -5,14 +5,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class JiraTest extends WebHooks {
-    private final JiraLoginPage jiraLoginPage = new JiraLoginPage();
     private final JiraDashPage jiraDashPage = new JiraDashPage();
     private final JiraProjectTestPage jiraProjectTest = new JiraProjectTestPage();
     private final JiraProjectTestTaskPage jiraProjectTestTask = new JiraProjectTestTaskPage();
     private final JiraViewTaskPage jiraViewTaskPage = new JiraViewTaskPage();
 
     private final String userLogin = "AT14";
-    private final String userPassword = "Qwerty123";
     private final String h1Dash = "System Dashboard";
     private final String hrefTest = "https://edujira.ifellow.ru/projects/TEST/summary";
     private final String taskName = "TestSeleniumATHomework";
@@ -25,7 +23,6 @@ public class JiraTest extends WebHooks {
     @Test
     @DisplayName("Авторизация в Jira")
     public void checkAuthorizationTest() {
-        jiraLoginPage.authorization(userLogin, userPassword);
         Assertions.assertEquals(h1Dash, jiraDashPage.getH1(), "Авторизация не пройдена");
     }
 
