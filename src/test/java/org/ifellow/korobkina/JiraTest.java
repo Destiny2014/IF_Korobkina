@@ -46,6 +46,7 @@ public class JiraTest extends WebHooks {
         int countBefore = jiraProjectTestTask.getCountTasks();
         jiraProjectTestTask.createNewTaskLight(nameTask);
         jiraProjectTestTask.openAllTasks();
+        Assertions.assertEquals("Все задачи", jiraProjectTestTask.getH1AllTasks(), "Переход во все задачи проекта не выполнен");
         int countAfter = jiraProjectTestTask.getCountTasks();
         Assertions.assertEquals(countAfter, countBefore + 1, "Кол-во задач не совпадает");
     }
@@ -55,7 +56,7 @@ public class JiraTest extends WebHooks {
     public void checkStatusVersTaskTest() {
         checkCountTaskTest();
         jiraProjectTestTask.searchTask(taskName);
-        Assertions.assertEquals(statusTaskDo, jiraViewTaskPage.getStatusTask(), "Статус не СДЕЛАТЬ");
+        Assertions.assertEquals(statusTaskDo, jiraViewTaskPage.getStatusTask(statusTaskDo), "Статус не СДЕЛАТЬ");
         Assertions.assertEquals(versionTask, jiraViewTaskPage.getVersionTask(), "Версия не Version 2.0");
     }
 
@@ -67,6 +68,6 @@ public class JiraTest extends WebHooks {
         Assertions.assertEquals(userLogin, jiraProjectTestTask.getMessage(), "Баг не создался");
         jiraProjectTestTask.searchTask(nameNewBug);
         jiraViewTaskPage.lifeCycleBug();
-        Assertions.assertEquals(statusTaskDone, jiraViewTaskPage.getStatusTask());
+        Assertions.assertEquals(statusTaskDone, jiraViewTaskPage.getStatusTask(statusTaskDone));
     }
 }

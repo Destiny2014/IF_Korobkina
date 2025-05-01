@@ -1,8 +1,6 @@
 package org.ifellow.korobkina;
 
 import static com.codeborne.selenide.Condition.*;
-
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 import static com.codeborne.selenide.Selenide.*;
@@ -14,8 +12,8 @@ public class JiraViewTaskPage {
     private final SelenideElement buttonBusinessProc = $x("//a[@id='opsbar-transitions_more']");
     private final SelenideElement buttonDone = $x("//div[@class = 'command-bar']//span[text()='Выполнено']/..");
 
-    public String getStatusTask() {
-        statusTask.shouldBe(visible, Duration.ofSeconds(20));
+    public String getStatusTask(String status) {
+        statusTask.shouldBe(visible, text(status));
         return (statusTask.getText());
     }
 
@@ -27,11 +25,9 @@ public class JiraViewTaskPage {
     public void lifeCycleBug() {
         buttonInProgress.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
-        Selenide.sleep(1000);
         buttonBusinessProc.shouldBe(visible, Duration.ofSeconds(40))
                 .click();
         buttonDone.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
-        Selenide.sleep(1000);
     }
 }

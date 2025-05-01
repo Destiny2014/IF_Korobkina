@@ -1,13 +1,9 @@
 package org.ifellow.korobkina;
 
 import static com.codeborne.selenide.Condition.*;
-
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
-
 import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class JiraProjectTestTaskPage {
@@ -37,12 +33,13 @@ public class JiraProjectTestTaskPage {
     private final SelenideElement inputSprint = $x("//div[contains(@id,'customfield_10104-single')]/input").as("Ссылка на эпик");
     private final SelenideElement selectCeverity = $x("//select[@id='customfield_10400']").as("Серьезность");
     private final SelenideElement message = $x("//div[contains(@class, 'closeable')]/a[contains(text(),'AT14')]");
+    private final SelenideElement loading = $x("//div[@class='loading']");
 
     public String getH1AllTasks() {
         return h1AllTasks.getText();
     }
 
-    public String getMessage(){
+    public String getMessage() {
         String s = message.getText();
         String[] words = s.split(" ");
         return words[4];
@@ -85,14 +82,12 @@ public class JiraProjectTestTaskPage {
                 .selectOptionByValue("clones");
         task.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
-        //Selenide.sleep(1000);
         task.shouldBe(visible, Duration.ofSeconds(40))
                 .setValue("TEST-181997").pressEnter();
         assigneToMe.shouldBe(visible, Duration.ofSeconds(30))
                 .click();
-        inputLinkEpic.shouldBe(visible, Duration.ofSeconds(20))
+        inputLinkEpic.shouldBe(visible, Duration.ofSeconds(40))
                 .click();
-        Selenide.sleep(1000);
         inputLinkEpic.shouldBe(visible, Duration.ofSeconds(20))
                 .sendKeys(Keys.DOWN);
         inputLinkEpic.pressEnter();
@@ -104,24 +99,23 @@ public class JiraProjectTestTaskPage {
                 .selectOptionByValue("10101");
         buttonCreateTaskEnd.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
-        Selenide.sleep(1000);
     }
 
     public void openAllTasks() {
         switchFilter.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
-        filterAllTasks.shouldBe(visible, Duration.ofSeconds(20))
+        filterAllTasks.shouldBe(visible, Duration.ofSeconds(40))
                 .click();
-        Selenide.sleep(1000);
     }
 
     public int getCountTasks() {
-        String countTasks = countTask.shouldBe(visible, Duration.ofSeconds(20))
+        loading.shouldNotBe(exist, Duration.ofSeconds(10));
+        String countTasks = countTask.shouldBe(exist, Duration.ofSeconds(10))
                 .getText();
         return (Integer.parseInt(splitCount(countTasks)));
     }
 
-    public String splitCount(String countBefore) {
+    private String splitCount(String countBefore) {
         String[] numbs = countBefore.split(" из ");
         return (numbs[1]);
     }
