@@ -1,6 +1,8 @@
-package org.ifellow.korobkina;
+package org.ifellow.korobkina.pages;
 
 import static com.codeborne.selenide.Condition.*;
+
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 import static com.codeborne.selenide.Selenide.*;
@@ -10,8 +12,10 @@ public class JiraDashPage {
     private final SelenideElement buttonProject = $x("//a[text()='Проекты']").as("Кнопка Проекты в шапке");
     private final SelenideElement projectTest = $x("//a[contains(text(),'Test')]").as("Кнопка выбора проекта Test");
 
-    public String getH1() {
-        return searchH1.getText();
+    public JiraDashPage getH1(String h1Dash) {
+        searchH1.shouldHave(Condition.text(h1Dash));
+        return this;
+        // return searchH1.getText();
     }
 
     public void openProject() {

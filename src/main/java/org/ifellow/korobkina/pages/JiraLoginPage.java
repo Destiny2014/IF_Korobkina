@@ -1,4 +1,4 @@
-package org.ifellow.korobkina;
+package org.ifellow.korobkina.pages;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
