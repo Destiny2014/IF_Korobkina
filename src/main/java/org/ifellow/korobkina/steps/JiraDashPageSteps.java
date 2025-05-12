@@ -11,7 +11,7 @@ public class JiraDashPageSteps {
         jiraDashPage.getH1(h1Dash);
     }
 
-    @Тогда("перешли в проект Test")
+    @Тогда("переходим в проект Test")
     public void openProject() {
         jiraDashPage.openProject();
     }

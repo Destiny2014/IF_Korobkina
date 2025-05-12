@@ -1,7 +1,6 @@
 package org.ifellow.korobkina.pages;
 
 import static com.codeborne.selenide.Condition.*;
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
@@ -15,7 +14,6 @@ public class JiraDashPage {
     public JiraDashPage getH1(String h1Dash) {
         searchH1.shouldHave(Condition.text(h1Dash));
         return this;
-        // return searchH1.getText();
     }
 
     public void openProject() {

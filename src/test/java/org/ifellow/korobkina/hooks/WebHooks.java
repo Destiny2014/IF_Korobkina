@@ -1,10 +1,9 @@
-package org.ifellow.korobkina.steps;
+package org.ifellow.korobkina.hooks;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.*;
 import org.ifellow.korobkina.pages.JiraLoginPage;
-//import org.junit.jupiter.api.*;
 import org.openqa.selenium.PageLoadStrategy;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
@@ -12,16 +11,6 @@ import org.openqa.selenium.WebDriver;
 import static util.DataProperties.getProperty;
 
 public class WebHooks {
-
-    @BeforeAll
-    public static void beforeAllTests() {
-        System.out.println("Тестирование началось");
-    }
-
-    @AfterAll
-    public static void afterAllTests() {
-        System.out.println("Тестирование завершилось");
-    }
 
     @Before
     public void initBrowser() {
