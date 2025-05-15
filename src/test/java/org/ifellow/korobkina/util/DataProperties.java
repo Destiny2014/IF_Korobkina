@@ -9,7 +9,7 @@ public class DataProperties {
     static {
         try {
             properties.load(DataProperties.class.getClassLoader()
-                    .getResourceAsStream("data.properties"));
+                    .getResourceAsStream("properties/data.properties"));
         } catch (IOException e) {
             throw new RuntimeException("Проперти не загрузились", e);
         }
