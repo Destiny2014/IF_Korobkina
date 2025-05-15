@@ -8,11 +8,11 @@ import org.openqa.selenium.PageLoadStrategy;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 
-import static util.DataProperties.getProperty;
+import static org.ifellow.korobkina.util.DataProperties.getProperty;
 
 public class WebHooks {
 
-    @Before
+    @Before("@test")
     public void initBrowser() {
         Configuration.pageLoadStrategy = PageLoadStrategy.NORMAL.toString();
         Configuration.timeout = 15000;
@@ -24,7 +24,7 @@ public class WebHooks {
         new JiraLoginPage().authorization(getProperty("userLogin"), getProperty("userPassword"));
     }
 
-    @After
+    @After("@test")
     public void afterTest() {
         Selenide.closeWebDriver();
     }
