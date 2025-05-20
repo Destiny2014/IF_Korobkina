@@ -24,7 +24,7 @@ public class RickMortyTest {
 
     @Test
     @DisplayName("Получение последнего эпизода у Морти Смита")
-    public void checkGetCharacter() {
+    public void checkGetCharacterTest() {
         bodyMorty = characterSteps.getCharacterByName(nameMorty, idMorty);
         Assertions.assertEquals(nameMorty, bodyMorty.get("name"));
         Assertions.assertEquals(lastEpisode, episodeSteps.getLastEpisode(bodyMorty));
@@ -32,8 +32,8 @@ public class RickMortyTest {
 
     @Test
     @DisplayName("Получение последнего персонажа из последнего эпизода Морти Смита")
-    public void checkGetLastCharacter() {
-        checkGetCharacter();
+    public void checkGetLastCharacterTest() {
+        checkGetCharacterTest();
         bodyEpisode = episodeSteps.getCharacterByEpisode(episodeSteps.getLastEpisode(bodyMorty));
         Assertions.assertEquals(nameLastEpisode, bodyEpisode.get("name"));
         Assertions.assertEquals(lastCharacter, characterSteps.getLastCharacter(bodyEpisode));
@@ -41,8 +41,8 @@ public class RickMortyTest {
 
     @Test
     @DisplayName("Получение местонахождения и рассы последнего персонажа")
-    public void chekGetLocationSpecies() {
-        checkGetLastCharacter();
+    public void chekGetLocationSpeciesTest() {
+        checkGetLastCharacterTest();
         bodyLastCharacter = characterSteps.getCharacterById(characterSteps.getLastCharacter(bodyEpisode));
         Assertions.assertEquals(nameLastCharacter, bodyLastCharacter.get("name"));
         Assertions.assertEquals(locationLastCharacter, bodyLastCharacter.get("location").toString());
@@ -51,8 +51,8 @@ public class RickMortyTest {
 
     @Test
     @DisplayName("Проверка расы и местонахождения персонажей")
-    public void chekLocationsSpecies() {
-        chekGetLocationSpecies();
+    public void chekLocationsSpeciesTest() {
+        chekGetLocationSpeciesTest();
         Assertions.assertEquals(bodyMorty.get("species").toString(), bodyLastCharacter.get("species").toString());
         Assertions.assertNotEquals(bodyMorty.get("location").toString(), bodyLastCharacter.get("location").toString());
     }
