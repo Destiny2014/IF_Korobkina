@@ -1,9 +1,10 @@
-package org.ifellow.korobkina.api.reqres;
+package org.ifellow.korobkina.steps.reqres;
 
 import io.restassured.path.json.JsonPath;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
-import org.ifellow.korobkina.dto.user.User;
+import org.ifellow.korobkina.api.reqres.UserApi;
+import org.ifellow.korobkina.dto.reqres.user.User;
 import org.ifellow.korobkina.utils.MapperUtils;
 
 public class UserSteps {
@@ -28,18 +29,6 @@ public class UserSteps {
                 .body("job", Matchers.is(job))
                 .extract()
                 .body()
-                // .jsonPath();
                 .as(User.class);
     }
-
-   /*public JsonPath createNewUser(String name, String job){
-        return userApi.postUser(new User(name, job))
-                .statusCode(HttpStatus.SC_CREATED)
-                .assertThat()
-                .body("name", Matchers.is(name))
-                .body("job", Matchers.is(job))
-                .extract()
-                .body()
-                .jsonPath();
-    }*/
 }

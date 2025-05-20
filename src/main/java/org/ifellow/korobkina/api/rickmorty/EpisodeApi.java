@@ -1,7 +1,6 @@
 package org.ifellow.korobkina.api.rickmorty;
 
 import io.restassured.response.ValidatableResponse;
-
 import static io.restassured.RestAssured.given;
 
 public class EpisodeApi extends BaseRickMortyApi {

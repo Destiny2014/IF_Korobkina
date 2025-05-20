@@ -1,7 +1,7 @@
 package org.ifellow.korobkina.reqres;
 
-import org.ifellow.korobkina.api.reqres.UserSteps;
-import org.ifellow.korobkina.dto.user.User;
+import org.ifellow.korobkina.steps.reqres.UserSteps;
+import org.ifellow.korobkina.dto.reqres.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,21 +13,13 @@ public class reqresTest {
 
     @Test
     @DisplayName("Получение всех пользователей")
-    public void chekGetAllUsers() {
+    public void chekGetAllUsersTest() {
         userSteps.getAllUsers();
     }
 
-   /* @Test
-    @DisplayName("Создание нового пользователя")
-    public void checkCreateUser(){
-        JsonPath body = userSteps.createNewUser(newName, newJob);
-        Assertions.assertEquals(newName, body.get("name"));
-        Assertions.assertEquals(newJob, body.get("job"));
-    }*/
-
     @Test
     @DisplayName("Создание нового пользователя из файла")
-    public void checkCreateUserFromFile() {
+    public void checkCreateUserFromFileTest() {
         User body = userSteps.createNewUserFromFile(newName, newJob);
         Assertions.assertEquals(newName, body.getName());
         Assertions.assertEquals(newJob, body.getJob());

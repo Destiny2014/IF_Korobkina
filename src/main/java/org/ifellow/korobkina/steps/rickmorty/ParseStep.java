@@ -1,4 +1,4 @@
-package org.ifellow.korobkina.steps;
+package org.ifellow.korobkina.steps.rickmorty;
 
 public class ParseStep {
 

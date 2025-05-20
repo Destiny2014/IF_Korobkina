@@ -2,7 +2,6 @@ package org.ifellow.korobkina.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-
 import java.io.File;
 
 public class MapperUtils {

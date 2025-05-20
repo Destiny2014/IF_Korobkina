@@ -1,8 +1,8 @@
 package org.ifellow.korobkina.rickmorty;
 
 import io.restassured.path.json.JsonPath;
-import org.ifellow.korobkina.steps.CharacterSteps;
-import org.ifellow.korobkina.steps.EpisodeSteps;
+import org.ifellow.korobkina.steps.rickmorty.CharacterSteps;
+import org.ifellow.korobkina.steps.rickmorty.EpisodeSteps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

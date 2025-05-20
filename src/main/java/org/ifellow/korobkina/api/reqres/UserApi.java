@@ -1,7 +1,7 @@
 package org.ifellow.korobkina.api.reqres;
 
 import io.restassured.response.ValidatableResponse;
-import org.ifellow.korobkina.dto.user.User;
+import org.ifellow.korobkina.dto.reqres.user.User;
 
 import static io.restassured.RestAssured.given;
 

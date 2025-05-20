@@ -1,9 +1,8 @@
-package org.ifellow.korobkina.steps;
+package org.ifellow.korobkina.steps.rickmorty;
 
 import io.restassured.path.json.JsonPath;
 import org.apache.http.HttpStatus;
 import org.ifellow.korobkina.api.rickmorty.EpisodeApi;
-
 import java.util.List;
 
 public class EpisodeSteps {
