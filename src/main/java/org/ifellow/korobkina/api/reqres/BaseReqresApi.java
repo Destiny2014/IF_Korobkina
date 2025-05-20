@@ -12,7 +12,7 @@ public abstract class BaseReqresApi {
     public BaseReqresApi() {
         RestAssured.requestSpecification = SpecificationsReqres.baseRequestSpecReqres(getProperty("reqres_url"), getProperty("API_KEY"), getProperty("API_VALUE"));
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .log(LogDetail.ALL)
+                .log(LogDetail.BODY)
                 .build();
     }
 }

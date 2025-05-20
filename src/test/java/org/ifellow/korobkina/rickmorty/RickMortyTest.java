@@ -25,7 +25,7 @@ public class RickMortyTest {
     @Test
     @DisplayName("Получение последнего эпизода у Морти Смита")
     public void checkGetCharacterTest() {
-        bodyMorty = characterSteps.getCharacterByName(nameMorty, idMorty);
+        bodyMorty = characterSteps.getCharacterByNameId(nameMorty, idMorty);
         Assertions.assertEquals(nameMorty, bodyMorty.get("name"));
         Assertions.assertEquals(lastEpisode, episodeSteps.getLastEpisode(bodyMorty));
     }

@@ -9,7 +9,7 @@ public class CharacterSteps {
     private static final CharacterApi characterApi = new CharacterApi();
     private static final ParseStep parsString = new ParseStep();
 
-    public JsonPath getCharacterByName(String name, int id) {
+    public JsonPath getCharacterByNameId(String name, int id) {
         return characterApi.getCharacterByNameId(name, id)
                 .statusCode(HttpStatus.SC_OK)
                 .extract()

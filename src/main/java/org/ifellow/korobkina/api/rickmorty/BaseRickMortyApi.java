@@ -12,7 +12,7 @@ public abstract class BaseRickMortyApi {
     public BaseRickMortyApi() {
         RestAssured.requestSpecification = SpecificationsRickMorty.baseRequestSpec(getProperty("rickmorty_url"));
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .log(LogDetail.ALL)
+                .log(LogDetail.BODY)
                 .build();
     }
 }
