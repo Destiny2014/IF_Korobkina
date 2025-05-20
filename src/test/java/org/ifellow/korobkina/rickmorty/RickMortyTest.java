@@ -1,4 +1,4 @@
-package org.ifellow.korobkina;
+package org.ifellow.korobkina.rickmorty;
 
 import io.restassured.path.json.JsonPath;
 import org.ifellow.korobkina.steps.CharacterSteps;

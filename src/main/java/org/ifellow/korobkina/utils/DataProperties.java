@@ -1,4 +1,4 @@
-package org.ifellow.korobkina.util;
+package org.ifellow.korobkina.utils;
 
 import java.io.IOException;
 import java.util.Properties;

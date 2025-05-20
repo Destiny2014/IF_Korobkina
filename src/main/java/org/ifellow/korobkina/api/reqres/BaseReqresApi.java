@@ -1,4 +1,4 @@
-package org.ifellow.korobkina.api.rickmorty;
+package org.ifellow.korobkina.api.reqres;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -7,10 +7,10 @@ import org.ifellow.korobkina.Specifications;
 
 import static org.ifellow.korobkina.utils.DataProperties.getProperty;
 
-public abstract class BaseRickMortyApi {
+public abstract class BaseReqresApi {
 
-    public BaseRickMortyApi() {
-        RestAssured.requestSpecification = Specifications.baseRequestSpec(getProperty("rickmorty_url"));
+    public BaseReqresApi() {
+        RestAssured.requestSpecification = Specifications.baseRequestSpecReqres(getProperty("reqres_url"), getProperty("API_KEY"), getProperty("API_VALUE"));
         RestAssured.responseSpecification = new ResponseSpecBuilder()
                 .log(LogDetail.ALL)
                 .build();
