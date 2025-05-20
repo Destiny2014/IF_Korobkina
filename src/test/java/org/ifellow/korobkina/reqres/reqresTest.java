@@ -1,13 +1,10 @@
 package org.ifellow.korobkina.reqres;
 
-import io.restassured.path.json.JsonPath;
 import org.ifellow.korobkina.api.reqres.UserSteps;
 import org.ifellow.korobkina.dto.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 public class reqresTest {
     private static final UserSteps userSteps = new UserSteps();
@@ -17,7 +14,7 @@ public class reqresTest {
     @Test
     @DisplayName("Получение всех пользователей")
     public void chekGetAllUsers() {
-        JsonPath body = userSteps.getAllUsers();
+        userSteps.getAllUsers();
     }
 
    /* @Test

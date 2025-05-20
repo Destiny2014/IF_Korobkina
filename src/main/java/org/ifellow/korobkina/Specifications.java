@@ -1,6 +1,5 @@
 package org.ifellow.korobkina;
 
-import io.restassured.authentication.AuthenticationScheme;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
