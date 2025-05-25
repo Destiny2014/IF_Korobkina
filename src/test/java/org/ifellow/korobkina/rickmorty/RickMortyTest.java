@@ -7,27 +7,21 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.ifellow.korobkina.utils.DataProperties.getProperty;
+
 public class RickMortyTest {
     private static final CharacterSteps characterSteps = new CharacterSteps();
     private static final EpisodeSteps episodeSteps = new EpisodeSteps();
-    String nameMorty = "Morty Smith";
-    int idMorty = 2;
-    String lastEpisode = "https://rickandmortyapi.com/api/episode/51";
-    String lastCharacter = "https://rickandmortyapi.com/api/character/825";
     JsonPath bodyMorty;
     JsonPath bodyEpisode;
     JsonPath bodyLastCharacter;
-    String nameLastEpisode = "Rickmurai Jack";
-    String nameLastCharacter = "Young Jerry";
-    String locationLastCharacter = "{name=Earth (Unknown dimension), url=https://rickandmortyapi.com/api/location/30}";
-    String speciesLastCharacter = "Human";
 
     @Test
     @DisplayName("Получение последнего эпизода у Морти Смита")
     public void checkGetCharacterTest() {
-        bodyMorty = characterSteps.getCharacterByNameId(nameMorty, idMorty);
-        Assertions.assertEquals(nameMorty, bodyMorty.get("name"));
-        Assertions.assertEquals(lastEpisode, episodeSteps.getLastEpisode(bodyMorty));
+        bodyMorty = characterSteps.getCharacterByNameId(getProperty("name_Morty"), Integer.parseInt(getProperty("id_Morty")));
+        Assertions.assertEquals(getProperty("name_Morty"), bodyMorty.get("name"));
+        Assertions.assertEquals(getProperty("last_Episode"), episodeSteps.getLastEpisode(bodyMorty));
     }
 
     @Test
@@ -35,8 +29,8 @@ public class RickMortyTest {
     public void checkGetLastCharacterTest() {
         checkGetCharacterTest();
         bodyEpisode = episodeSteps.getCharacterByEpisode(episodeSteps.getLastEpisode(bodyMorty));
-        Assertions.assertEquals(nameLastEpisode, bodyEpisode.get("name"));
-        Assertions.assertEquals(lastCharacter, characterSteps.getLastCharacter(bodyEpisode));
+        Assertions.assertEquals(getProperty("name_LastEpisode"), bodyEpisode.get("name"));
+        Assertions.assertEquals(getProperty("last_Character"), characterSteps.getLastCharacter(bodyEpisode));
     }
 
     @Test
@@ -44,9 +38,9 @@ public class RickMortyTest {
     public void chekGetLocationSpeciesTest() {
         checkGetLastCharacterTest();
         bodyLastCharacter = characterSteps.getCharacterById(characterSteps.getLastCharacter(bodyEpisode));
-        Assertions.assertEquals(nameLastCharacter, bodyLastCharacter.get("name"));
-        Assertions.assertEquals(locationLastCharacter, bodyLastCharacter.get("location").toString());
-        Assertions.assertEquals(speciesLastCharacter, bodyLastCharacter.get("species"));
+        Assertions.assertEquals(getProperty("name_LastCharacter"), bodyLastCharacter.get("name"));
+        Assertions.assertEquals(getProperty("location_LastCharacter"), bodyLastCharacter.get("location").toString());
+        Assertions.assertEquals(getProperty("species_LastCharacter"), bodyLastCharacter.get("species"));
     }
 
     @Test
