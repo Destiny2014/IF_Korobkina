@@ -1,12 +1,11 @@
 package org.ifellow.korobkina;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-
 import java.time.Duration;
-import static com.codeborne.selenide.Selenide.*;
 
 public class JiraDashPage {
     private final SelenideElement searchH1 = $x("//h1[contains(text(),'System')]").as("Заголовок страницы");

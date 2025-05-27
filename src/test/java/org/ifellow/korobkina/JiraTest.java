@@ -4,7 +4,6 @@ import io.qameta.allure.Epic;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static util.DataProperties.getProperty;
 
 @Epic(value = "Тестирование JiraIFellow")
@@ -14,17 +13,15 @@ public class JiraTest extends WebHooks {
     private final JiraProjectTestTaskPage jiraProjectTestTask = new JiraProjectTestTaskPage();
     private final JiraViewTaskPage jiraViewTaskPage = new JiraViewTaskPage();
 
-    private final String h1Dash = "System Dashboard";
     private final String hrefTest = "https://edujira.ifellow.ru/projects/TEST/summary";
     private final String statusTaskDo = "СДЕЛАТЬ";
     private final String nameNewBug = "New bug AT14";
     private final String statusTaskDone = "ГОТОВО";
-    private final String nameNewTask = "New task for count task AT14";
 
     @Test
     @DisplayName("Авторизация в Jira")
     public void checkAuthorizationTest() {
-        Assertions.assertEquals(h1Dash, jiraDashPage.getH1(), "Авторизация не пройдена");
+        Assertions.assertEquals("System Dashboard", jiraDashPage.getH1(), "Авторизация не пройдена");
     }
 
     @Test
@@ -42,7 +39,7 @@ public class JiraTest extends WebHooks {
         jiraProjectTestTask.openAllTasks();
         Assertions.assertEquals("Все задачи", jiraProjectTestTask.getH1AllTasks(), "Переход во все задачи проекта не выполнен");
         int countBefore = jiraProjectTestTask.getCountTasks();
-        jiraProjectTestTask.createNewTaskLight(nameNewTask);
+        jiraProjectTestTask.createNewTaskLight("New task for count task AT14");
         jiraProjectTestTask.openAllTasks();
         Assertions.assertEquals("Все задачи", jiraProjectTestTask.getH1AllTasks(), "Переход во все задачи проекта не выполнен");
         int countAfter = jiraProjectTestTask.getCountTasks();

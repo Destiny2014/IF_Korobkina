@@ -1,10 +1,9 @@
 package org.ifellow.korobkina;
 
+import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-
-import static com.codeborne.selenide.Selenide.*;
 
 public class JiraProjectTestPage {
     private final SelenideElement hrefProjectTest = $x("//a[contains(@href,'/projects/TEST/summary') and text()='Test']").as("ссылка проекта Test");
