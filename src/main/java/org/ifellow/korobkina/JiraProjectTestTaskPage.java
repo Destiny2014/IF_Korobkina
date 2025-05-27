@@ -2,6 +2,8 @@ package org.ifellow.korobkina;
 
 import static com.codeborne.selenide.Condition.*;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import java.time.Duration;
 import static com.codeborne.selenide.Selenide.*;
@@ -32,19 +34,24 @@ public class JiraProjectTestTaskPage {
     private final SelenideElement inputLinkEpic = $x("//div[contains(@id,'customfield_10100-single')]/input").as("Ссылка на эпик");
     private final SelenideElement inputSprint = $x("//div[contains(@id,'customfield_10104-single')]/input").as("Ссылка на эпик");
     private final SelenideElement selectCeverity = $x("//select[@id='customfield_10400']").as("Серьезность");
-    private final SelenideElement message = $x("//div[contains(@class, 'closeable')]/a[contains(text(),'AT14')]");
-    private final SelenideElement loading = $x("//div[@class='loading']");
+    private final SelenideElement message = $x("//div[contains(@class, 'closeable')]/a[contains(text(),'AT14')]").as("Сообщение о создании новой задачи");
+    private final SelenideElement loading = $x("//div[@class='loading']").as("Загрузка");
 
+    @Step("Получение заголовка: Все задачи")
     public String getH1AllTasks() {
+        Allure.addAttachment("Заголовок страницы:", h1AllTasks.getText());
         return h1AllTasks.getText();
     }
 
+    @Step("Получение части названия AT14 нового бага")
     public String getMessage() {
         String s = message.getText();
         String[] words = s.split(" ");
+        Allure.addAttachment("Часть названия бага", words[4]);
         return words[4];
     }
 
+    @Step("Создание нового бага с именем '{nameNewBug}'")
     public void createNewTaskFull(String nameNewBug) {
         buttonCreateTask.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
@@ -101,6 +108,7 @@ public class JiraProjectTestTaskPage {
                 .click();
     }
 
+    @Step("Переход во все задачи проекта Test")
     public void openAllTasks() {
         switchFilter.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
@@ -108,6 +116,7 @@ public class JiraProjectTestTaskPage {
                 .click();
     }
 
+    @Step("Получение общего кол-ва задач проекта")
     public int getCountTasks() {
         loading.shouldNotBe(exist, Duration.ofSeconds(10));
         String countTasks = countTask.shouldBe(exist, Duration.ofSeconds(10))
@@ -120,6 +129,7 @@ public class JiraProjectTestTaskPage {
         return (numbs[1]);
     }
 
+    @Step("Создание новой задачи с именем: '{nameTask}'")
     public void createNewTaskLight(String nameTask) {
         buttonCreateTask.shouldBe(visible, Duration.ofSeconds(20))
                 .click();
@@ -129,6 +139,7 @@ public class JiraProjectTestTaskPage {
                 .click();
     }
 
+    @Step("Поиск задачи с именем: '{taskName}'")
     public void searchTask(String taskName) {
         inputSearch.shouldBe(visible, Duration.ofSeconds(20))
                 .setValue(taskName).pressEnter();
