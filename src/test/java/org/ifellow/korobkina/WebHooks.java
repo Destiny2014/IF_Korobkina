@@ -16,7 +16,9 @@ public class WebHooks {
 
     @BeforeAll
     public static void setUpAllure() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(Boolean.parseBoolean(getProperty("screenshots")))
+                .savePageSource(Boolean.parseBoolean(getProperty("savePageSource"))));
     }
 
     @Step("Открытие страницы JiraIFellow")
