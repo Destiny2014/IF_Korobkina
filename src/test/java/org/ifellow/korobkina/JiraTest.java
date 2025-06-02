@@ -1,13 +1,17 @@
 package org.ifellow.korobkina;
 
 import io.qameta.allure.Epic;
+import lombok.extern.slf4j.Slf4j;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static util.DataProperties.getProperty;
+import util.TestConfig;
 
+@Slf4j
 @Epic(value = "Тестирование JiraIFellow")
 public class JiraTest extends WebHooks {
+    private final TestConfig config = ConfigFactory.create(TestConfig.class);
     private final JiraDashPage jiraDashPage = new JiraDashPage();
     private final JiraProjectTestPage jiraProjectTest = new JiraProjectTestPage();
     private final JiraProjectTestTaskPage jiraProjectTestTask = new JiraProjectTestTaskPage();
@@ -15,13 +19,13 @@ public class JiraTest extends WebHooks {
 
     private final String hrefTest = "https://edujira.ifellow.ru/projects/TEST/summary";
     private final String statusTaskDo = "СДЕЛАТЬ";
-    private final String nameNewBug = "New bug AT14";
     private final String statusTaskDone = "ГОТОВО";
 
     @Test
     @DisplayName("Авторизация в Jira")
     public void checkAuthorizationTest() {
         Assertions.assertEquals("System Dashboard", jiraDashPage.getH1(), "Авторизация не пройдена");
+        log.warn("Авторизация пользователя выполнена");
     }
 
     @Test
@@ -50,19 +54,19 @@ public class JiraTest extends WebHooks {
     @DisplayName("Проверка задачи TestSeleniumATHomework")
     public void checkStatusVersTaskTest() {
         checkCountTaskTest();
-        jiraProjectTestTask.searchTask(getProperty("taskName"));
+        jiraProjectTestTask.searchTask(config.taskName());
         Assertions.assertEquals(statusTaskDo, jiraViewTaskPage.getStatusTask(statusTaskDo), "Статус не СДЕЛАТЬ");
-        Assertions.assertEquals(getProperty("versionTask"), jiraViewTaskPage.getVersionTask(), "Версия не Version 2.0");
+        Assertions.assertEquals(config.versionTask(), jiraViewTaskPage.getVersionTask(), "Версия не Version 2.0");
     }
 
     @Test
     @DisplayName("Создание нового бага и проведение его по статусам")
     public void checkCreateBugTest() {
         checkStatusVersTaskTest();
-        jiraProjectTestTask.createNewTaskFull(nameNewBug);
-        Assertions.assertEquals(getProperty("userLogin"), jiraProjectTestTask.getMessage(), "Баг не создался");
-        jiraProjectTestTask.searchTask(nameNewBug);
+        jiraProjectTestTask.createNewTaskFull(config.nameNewBug());
+        Assertions.assertEquals(config.userLogin(), jiraProjectTestTask.getMessage(), "Баг не создался");
+        jiraProjectTestTask.searchTask(config.nameNewBug());
         jiraViewTaskPage.lifeCycleBug();
-        Assertions.assertEquals(statusTaskDone, jiraViewTaskPage.getStatusTask(statusTaskDone));
+        Assertions.assertEquals(statusTaskDone, jiraViewTaskPage.getStatusTask(statusTaskDone), "Новый баг не создан");
     }
 }
