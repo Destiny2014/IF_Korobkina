@@ -15,24 +15,6 @@ public interface TestConfig extends Config {
     @Key("id_Morty")
     int id_Morty();
 
-    @Key("last_Episode")
-    String last_Episode();
-
-    @Key("last_Character")
-    String last_Character();
-
-    @Key("name_LastEpisode")
-    String name_LastEpisode();
-
-    @Key("name_LastCharacter")
-    String name_LastCharacter();
-
-    @Key("location_LastCharacter")
-    String location_LastCharacter();
-
-    @Key("species_LastCharacter")
-    String species_LastCharacter();
-
     @Key("reqres_url")
     String reqres_url();
 
