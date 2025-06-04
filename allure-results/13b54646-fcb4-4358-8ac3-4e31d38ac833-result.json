@@ -1,0 +1,42 @@
+{
+  "uuid": "13b54646-fcb4-4358-8ac3-4e31d38ac833",
+  "historyId": "c22d444a4c1aa020da6df7bed8654aff",
+  "testCaseId": "[engine:junit-platform-suite]/[suite:org.ifellow.korobkina.CucumberRunnerTest]/[engine:cucumber]/[feature:file%3A%2FZ%3A%2Fjava_new%2FIF_Korobkina%2Fsrc%2Ftest%2Fresources%2Ffeature%2FReqresTest.feature]/[scenario:10]",
+  "testCaseName": "Создание нового пользователя из файла",
+  "labels": [
+    {
+      "name": "tag",
+      "value": "test"
+    },
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-platform-suite]/[suite:org.ifellow.korobkina.CucumberRunnerTest]/[engine:cucumber]/[feature:file%3A%2FZ%3A%2Fjava_new%2FIF_Korobkina%2Fsrc%2Ftest%2Fresources%2Ffeature%2FReqresTest.feature]/[scenario:10]"
+    },
+    {
+      "name": "host",
+      "value": "LAPTOP-159VO9ML"
+    },
+    {
+      "name": "thread",
+      "value": "15420@LAPTOP-159VO9ML.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Создание нового пользователя из файла",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1748963241313,
+  "stop": 1748963242970
+}

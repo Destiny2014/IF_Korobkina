@@ -1,0 +1,350 @@
+{
+  "uuid": "bbfb7c58-8a5e-411e-8c7a-e8b3d0714220",
+  "historyId": "10726338570937899a0ed66176929ff3",
+  "testCaseId": "[engine:junit-platform-suite]/[suite:org.ifellow.korobkina.CucumberRunnerTest]/[engine:cucumber]/[feature:file%3A%2FZ%3A%2Fjava_new%2FIF_Korobkina%2Fsrc%2Ftest%2Fresources%2Ffeature%2FRickMortyTest.feature]/[scenario:23]",
+  "testCaseName": "Получение местонахождения и рассы последнего персонажа",
+  "labels": [
+    {
+      "name": "tag",
+      "value": "test"
+    },
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-platform-suite]/[suite:org.ifellow.korobkina.CucumberRunnerTest]/[engine:cucumber]/[feature:file%3A%2FZ%3A%2Fjava_new%2FIF_Korobkina%2Fsrc%2Ftest%2Fresources%2Ffeature%2FRickMortyTest.feature]/[scenario:23]"
+    },
+    {
+      "name": "host",
+      "value": "LAPTOP-159VO9ML"
+    },
+    {
+      "name": "thread",
+      "value": "2980@LAPTOP-159VO9ML.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "Получение местонахождения и рассы последнего персонажа",
+  "status": "passed",
+  "stage": "finished",
+  "description": "",
+  "steps": [
+    {
+      "name": "Получение персонажа Morty Smith",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение персонажа по имени 'Morty Smith' и id '2'",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "name",
+              "value": "Morty Smith"
+            },
+            {
+              "name": "id",
+              "value": "2"
+            }
+          ],
+          "start": 1749022468125,
+          "stop": 1749022468308
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749022468125,
+      "stop": 1749022468308
+    },
+    {
+      "name": "Проверка что имя персонажа 'Morty Smith'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "name",
+          "value": "Morty Smith"
+        }
+      ],
+      "start": 1749022468308,
+      "stop": 1749022468320
+    },
+    {
+      "name": "Получение последнего эпизода Morty Smith",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение последнего эпизода",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "body",
+              "value": "io.restassured.path.json.JsonPath@28fa0ff8"
+            }
+          ],
+          "start": 1749022468320,
+          "stop": 1749022468329
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749022468320,
+      "stop": 1749022468329
+    },
+    {
+      "name": "Проверка что эпизод 'https://rickandmortyapi.com/api/episode/51'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение последнего эпизода",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "body",
+              "value": "io.restassured.path.json.JsonPath@28fa0ff8"
+            }
+          ],
+          "start": 1749022468330,
+          "stop": 1749022468338
+        }
+      ],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "lastEpisode",
+          "value": "https://rickandmortyapi.com/api/episode/51"
+        }
+      ],
+      "start": 1749022468330,
+      "stop": 1749022468338
+    },
+    {
+      "name": "Получение body последнего эпизода",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение последнего эпизода",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "body",
+              "value": "io.restassured.path.json.JsonPath@28fa0ff8"
+            }
+          ],
+          "start": 1749022468338,
+          "stop": 1749022468346
+        },
+        {
+          "name": "Получение персонажа из последнего эпизода 'https://rickandmortyapi.com/api/episode/51'",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "Парсинг url 'https://rickandmortyapi.com/api/episode/51'",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [
+                {
+                  "name": "url",
+                  "value": "https://rickandmortyapi.com/api/episode/51"
+                }
+              ],
+              "start": 1749022468346,
+              "stop": 1749022468346
+            }
+          ],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "lastEpisode",
+              "value": "https://rickandmortyapi.com/api/episode/51"
+            }
+          ],
+          "start": 1749022468346,
+          "stop": 1749022468513
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749022468338,
+      "stop": 1749022468513
+    },
+    {
+      "name": "Проверка что название последнего эпизода 'Rickmurai Jack'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "nameLastEpisode",
+          "value": "Rickmurai Jack"
+        }
+      ],
+      "start": 1749022468513,
+      "stop": 1749022468525
+    },
+    {
+      "name": "Проверка что последний персонаж из эпизода 'https://rickandmortyapi.com/api/character/825'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение последнего персонажа",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "body",
+              "value": "io.restassured.path.json.JsonPath@3c67b7a9"
+            }
+          ],
+          "start": 1749022468526,
+          "stop": 1749022468535
+        }
+      ],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "lastCharacter",
+          "value": "https://rickandmortyapi.com/api/character/825"
+        }
+      ],
+      "start": 1749022468526,
+      "stop": 1749022468535
+    },
+    {
+      "name": "Получение последнего персонажа из последнего эпизода",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Получение последнего персонажа",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "body",
+              "value": "io.restassured.path.json.JsonPath@3c67b7a9"
+            }
+          ],
+          "start": 1749022468535,
+          "stop": 1749022468546
+        },
+        {
+          "name": "Получение персонажа по id",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "Парсинг url 'https://rickandmortyapi.com/api/character/825'",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [
+                {
+                  "name": "url",
+                  "value": "https://rickandmortyapi.com/api/character/825"
+                }
+              ],
+              "start": 1749022468546,
+              "stop": 1749022468546
+            }
+          ],
+          "attachments": [],
+          "parameters": [
+            {
+              "name": "lastCharacter",
+              "value": "https://rickandmortyapi.com/api/character/825"
+            }
+          ],
+          "start": 1749022468546,
+          "stop": 1749022468708
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1749022468535,
+      "stop": 1749022468708
+    },
+    {
+      "name": "Проверка что имя последнего персонажа 'Young Jerry'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "nameLastCharacter",
+          "value": "Young Jerry"
+        }
+      ],
+      "start": 1749022468708,
+      "stop": 1749022468718
+    },
+    {
+      "name": "Проверка что локация последнего персонажа '{name=Earth (Unknown dimension), url=https://rickandmortyapi.com/api/location/30}'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "locationLastCharacter",
+          "value": "{name=Earth (Unknown dimension), url=https://rickandmortyapi.com/api/location/30}"
+        }
+      ],
+      "start": 1749022468718,
+      "stop": 1749022468729
+    },
+    {
+      "name": "Проверка что раса последнего персонажа 'Human'",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [
+        {
+          "name": "speciesLastCharacter",
+          "value": "Human"
+        }
+      ],
+      "start": 1749022468729,
+      "stop": 1749022468737
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1749022468122,
+  "stop": 1749022468738
+}

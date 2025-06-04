@@ -1,0 +1,14 @@
+{
+  "uuid": "eeeea134-18ba-4d55-9d1f-aa93e92c1062",
+  "name": "Выполнение сценария по сериалу Рик и Морти",
+  "children": [
+    "72be5c97-ba26-4d93-a2f5-dcadcffe2573",
+    "261dfe9c-4a74-406e-ad8a-dd0baa6cf00a",
+    "bbfb7c58-8a5e-411e-8c7a-e8b3d0714220",
+    "275f9dfb-0e3c-451a-810a-a489d750d71c"
+  ],
+  "befores": [],
+  "afters": [],
+  "start": 1749022467194,
+  "stop": 1749022469360
+}
