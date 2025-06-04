@@ -1,6 +1,7 @@
 package org.ifellow.korobkina.steps.reqres;
 
 import io.cucumber.java.ru.*;
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.aeonbits.owner.ConfigFactory;
 import org.ifellow.korobkina.dto.reqres.user.User;
@@ -12,16 +13,19 @@ public class ReqresSteps {
     private static final UserSteps userSteps = new UserSteps();
     User body;
 
+    @Step("Получаем всех пользователей")
     @Тогда("получили всех пользователей")
     public void getAllUsers() {
         userSteps.getAllUsers();
     }
 
+    @Step("Создаем нового пользователя")
     @Тогда("создаем нового пользователя")
     public void createNewUser() {
         body = userSteps.createNewUserFromFile(config.new_name(), config.new_job());
     }
 
+    @Step("Проверка что новое имя пользователя '{nameUser}'")
     @И("^проверяем что новое имя пользователя '(.*)'")
     public void checkNameUSer(String nameUser) {
         if (!nameUser.equals(body.getName())) {
@@ -29,6 +33,7 @@ public class ReqresSteps {
         }
     }
 
+    @Step("Проверка что название работы '{nameJob}'")
     @И("^проверяем что название работы '(.*)'")
     public void checkNameJob(String nameJob) {
         if (!nameJob.equals(body.getJob())) {

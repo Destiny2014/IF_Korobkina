@@ -1,6 +1,7 @@
 package org.ifellow.korobkina.steps.rickmorty;
 
 import io.cucumber.java.ru.*;
+import io.qameta.allure.Step;
 import io.restassured.path.json.JsonPath;
 import lombok.extern.slf4j.Slf4j;
 import org.aeonbits.owner.ConfigFactory;
@@ -16,11 +17,13 @@ public class RickMortySteps {
     JsonPath bodyEpisode;
     JsonPath bodyLastCharacter;
 
+    @Step("Получение персонажа Morty Smith")
     @Когда("получаем персонажа Morty Smith")
     public void getCharacter() {
         bodyMorty = character.getCharacterByNameId(config.name_Morty(), config.id_Morty());
     }
 
+    @Step("Проверка что имя персонажа '{name}'")
     @Тогда("^проверяем что его имя '(.*)'")
     public void chekCharacterName(String name) {
         if (!name.equals(bodyMorty.get("name"))) {
@@ -28,11 +31,13 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Получение последнего эпизода Morty Smith")
     @И("получаем последний эпизод Morty Smith")
     public void getLastEpisode() {
         episodeSteps.getLastEpisode(bodyMorty);
     }
 
+    @Step("Проверка что эпизод '{lastEpisode}'")
     @И("^проверяем что это эпизод '(.*)'")
     public void checkLastEpisode(String lastEpisode) {
         if (!lastEpisode.equals(episodeSteps.getLastEpisode(bodyMorty))) {
@@ -40,11 +45,13 @@ public class RickMortySteps {
         }
     }
 
-    @Тогда("^получаем тело последнего эпизода")
+    @Step("Получение body последнего эпизода")
+    @Тогда("^получаем body последнего эпизода")
     public void getBodyFromLastEpisode() {
         bodyEpisode = episodeSteps.getCharacterByEpisode(episodeSteps.getLastEpisode(bodyMorty));
     }
 
+    @Step("Проверка что название последнего эпизода '{nameLastEpisode}'")
     @И("^проверяем что название последного эпизода '(.*)'")
     public void checkNameLastEpisode(String nameLastEpisode) {
         if (!nameLastEpisode.equals(bodyEpisode.get("name"))) {
@@ -52,6 +59,7 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Проверка что последний персонаж из эпизода '{lastCharacter}'")
     @И("^проверяем что последний персонаж из эпизода '(.*)'")
     public void checkLastCharacterFromLastEpisode(String lastCharacter) {
         if (!lastCharacter.equals(characterSteps.getLastCharacter(bodyEpisode))) {
@@ -59,11 +67,13 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Получение последнего персонажа из последнего эпизода")
     @Тогда("получаем последнего персонажа из последного эпизода")
     public void getLastCharacterFromLastEpisode() {
         bodyLastCharacter = characterSteps.getCharacterById(characterSteps.getLastCharacter(bodyEpisode));
     }
 
+    @Step("Проверка что имя последнего персонажа '{nameLastCharacter}'")
     @И("^проверяем что имя последнего персонажа '(.*)'")
     public void checkNameLastCharacter(String nameLastCharacter) {
         if (!nameLastCharacter.equals(bodyLastCharacter.get("name"))) {
@@ -71,6 +81,7 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Проверка что локация последнего персонажа '{locationLastCharacter}'")
     @Тогда("^проверяем что локация последнего персонажа '(.*)'")
     public void checkLocationLastCharacter(String locationLastCharacter) {
         if (!locationLastCharacter.equals(bodyLastCharacter.get("location").toString())) {
@@ -78,6 +89,7 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Проверка что раса последнего персонажа '{speciesLastCharacter}'")
     @И("^проверяем что раса последнего персонажа '(.*)'")
     public void checkSpeciesLastCharacter(String speciesLastCharacter) {
         if (!speciesLastCharacter.equals(bodyLastCharacter.get("species"))) {
@@ -85,6 +97,7 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Проверка расы Морти и последнего персонажа")
     @Тогда("проверяем расы Морти и последнего персонажа")
     public void checkSpeciesCharacters() {
         if (!bodyMorty.get("species").toString().equals(bodyLastCharacter.get("species").toString())) {
@@ -92,6 +105,7 @@ public class RickMortySteps {
         }
     }
 
+    @Step("Проверка что персонажи находятся в разных локациях")
     @И("проверяем что персонажи находятся в разных локациях")
     public void checkLocationsCharacters() {
         if (!bodyMorty.get("location").toString().equals(bodyLastCharacter.get("location").toString())) {
