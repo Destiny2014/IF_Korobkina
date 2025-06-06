@@ -17,7 +17,7 @@ public class RickMortySteps {
     JsonPath bodyEpisode;
     JsonPath bodyLastCharacter;
 
-    @Step("Получение персонажа Morty Smith")
+    @Step("Вызов метода получения персонажа Morty Smith")
     @Когда("получаем персонажа Morty Smith")
     public void getCharacter() {
         bodyMorty = character.getCharacterByNameId(config.name_Morty(), config.id_Morty());
@@ -31,7 +31,7 @@ public class RickMortySteps {
         }
     }
 
-    @Step("Получение последнего эпизода Morty Smith")
+    @Step("Вызов метода получения последнего эпизода Morty Smith")
     @И("получаем последний эпизод Morty Smith")
     public void getLastEpisode() {
         episodeSteps.getLastEpisode(bodyMorty);
@@ -45,7 +45,7 @@ public class RickMortySteps {
         }
     }
 
-    @Step("Получение body последнего эпизода")
+    @Step("Вызов метода получения body последнего эпизода")
     @Тогда("^получаем body последнего эпизода")
     public void getBodyFromLastEpisode() {
         bodyEpisode = episodeSteps.getCharacterByEpisode(episodeSteps.getLastEpisode(bodyMorty));
@@ -67,7 +67,7 @@ public class RickMortySteps {
         }
     }
 
-    @Step("Получение последнего персонажа из последнего эпизода")
+    @Step("Вызов метода получения последнего персонажа из последнего эпизода")
     @Тогда("получаем последнего персонажа из последного эпизода")
     public void getLastCharacterFromLastEpisode() {
         bodyLastCharacter = characterSteps.getCharacterById(characterSteps.getLastCharacter(bodyEpisode));

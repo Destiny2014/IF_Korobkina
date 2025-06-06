@@ -1,5 +1,6 @@
 package org.ifellow.korobkina.api.rickmorty;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
@@ -9,11 +10,13 @@ public class CharacterApi extends BaseRickMortyApi {
 
     @Step("Запрос на получение персонажа по имени: '{nameCharacter}' и id: '{idCharacter}' по URN")
     public ValidatableResponse getCharacterByNameId(String nameCharacter, int idCharacter) {
+        Allure.addAttachment("URN:", CHARACTER_URN);
         return (genMethod.getSomething(nameCharacter, CHARACTER_URN, idCharacter));
     }
 
     @Step("Запрос на получение персонажа по id: '{id}' по URN ")
     public ValidatableResponse getCharacterById(int id) {
+        Allure.addAttachment("URN:", CHARACTER_URN);
         return (genMethod.getSomething(CHARACTER_URN, id));
     }
 }

@@ -13,13 +13,13 @@ public class ReqresSteps {
     private static final UserSteps userSteps = new UserSteps();
     User body;
 
-    @Step("Получаем всех пользователей")
+    @Step("Вызов метода получения всех пользователей")
     @Тогда("получили всех пользователей")
     public void getAllUsers() {
         userSteps.getAllUsers();
     }
 
-    @Step("Создаем нового пользователя")
+    @Step("Вызов метода создания нового пользователя")
     @Тогда("создаем нового пользователя")
     public void createNewUser() {
         body = userSteps.createNewUserFromFile(config.new_name(), config.new_job());

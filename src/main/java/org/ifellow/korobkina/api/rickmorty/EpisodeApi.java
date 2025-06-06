@@ -1,5 +1,6 @@
 package org.ifellow.korobkina.api.rickmorty;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
@@ -9,6 +10,7 @@ public class EpisodeApi extends BaseRickMortyApi {
 
     @Step("Запрос на получение последнего эпизода: '{lastEpisode}'")
     public ValidatableResponse getCharactersFromEpisode(int lastEpisode) {
+        Allure.addAttachment("URN:", EPISODE_URN);
         return (genMethod.getSomething(EPISODE_URN, lastEpisode));
     }
 }

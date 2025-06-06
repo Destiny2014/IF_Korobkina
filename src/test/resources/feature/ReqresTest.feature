@@ -1,4 +1,5 @@
 # language: ru
+@reqres
 
 Функция: Работа с пользователями в Reqres
 
