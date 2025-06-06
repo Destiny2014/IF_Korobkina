@@ -20,7 +20,6 @@
 по значениям key и value: "name": "Tomato", "job": "Eat maket“. 
 
 ## В текущей версии используются
-- selenide
 - JUnit5
 - Allure
 - Cucumber
