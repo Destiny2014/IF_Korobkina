@@ -24,7 +24,7 @@
 - Allure
 - Cucumber
 - Rest Assured
-- properties
+- properties aeonbits
 - slf4j и log4j 
 
 ## Начало работы
